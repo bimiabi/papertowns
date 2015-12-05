@@ -39,5 +39,10 @@
   <%= @appointment.appointment_note %>
 </p>
 
+<p>
+  <strong>Status:</strong>
+  <%= @appointment.appointment_status %>
+</p>
+
 <%= link_to 'Edit', edit_appointment_path(@appointment) %> |
 <%= link_to 'Back', appointments_path %>
