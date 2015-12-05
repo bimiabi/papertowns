@@ -1,0 +1,49 @@
+<%= form_for(@appointment) do |f| %>
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+      <% @appointment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :customer_name %><br>
+    <%= f.text_field :customer_name %>
+  </div>
+  <div class="field">
+    <%= f.label :technician_name %><br>
+    <%= f.text_field :technician_name %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_number %><br>
+    <%= f.text_field :phone_number %>
+  </div>
+  <div class="field">
+    <%= f.label :appointment_type %><br>
+    <%= f.text_field :appointment_type %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :product_model %><br>
+    <%= f.text_field :product_model %>
+  </div>
+  <div class="field">
+    <%= f.label :appointment_date %><br>
+    <%= f.date_select :appointment_date %>
+  </div>
+  <div class="field">
+    <%= f.label :appointment_note %><br>
+    <%= f.text_area :appointment_note %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
