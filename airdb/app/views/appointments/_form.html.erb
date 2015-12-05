@@ -43,6 +43,13 @@
     <%= f.label :appointment_note %><br>
     <%= f.text_area :appointment_note %>
   </div>
+  <div class="field">
+    <%= f.label :appointment_status %><br>
+    <%= f.select(:appointment_status, options_for_select([ ["No Status"], ["Pending"], ["Done"] ])) %>
+    <% if appointment_status = "Pending" %>
+        
+    <%end%>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
