@@ -15,10 +15,10 @@
     <%= f.label :customer_name %><br>
     <%= f.text_field :customer_name %>
   </div>
-  <div class="field">
-    <%= f.label :product_name %><br>
-    <%= f.text_field :product_name %>
-  </div>
+    <div class="field">
+      <%= f.label :product_name %><br>
+      <%= f.select(:product_name, options_for_select(Product.all, :product_name)) %>
+    </div>
   <div class="field">
     <%= f.label :product_model %><br>
     <%= f.text_field :product_model %>
