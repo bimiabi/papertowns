@@ -1,0 +1,60 @@
+README
+
+*The Update for this pull request:
+  User Authentication, but no authorization yet.
+  Using Devise.
+
+* Ruby version: 2.1.5
+
+* Rails version: 4.2.4
+
+* System dependencies: Check GEMFILE and run bundle install
+
+* Configuration of the root path is: root 'airdb#home'
+
+* Database creation: localhost, default ruby sqlite database
+
+* Database initialization: migration of all necessary objects is under the "db/migrate" folder in the project files
+
+* How to run the test suite:
+  To run the test first download the project as zip file,
+  extract it check the steps below under "Deployment" b-point.
+
+* Deployment instructions:
+  Manual Deployment,
+  Please do not use this command for deployment
+  <tt>bundle install --deployment</tt> because this is manual deployment and it will create a gigantic bit where as a result you will be unable to commit the new changes to the working branch.
+  Instead use the following commands until we come to the decision of using an automatic deployment method:
+  <tt>bundle install</tt>
+  <tt>rake db:migrate</tt>
+  <tt>rails s or rails server</tt>
+
+* Services:
+This is the first implementation of the project
+In this pull request you will find:
+
+*  1. CRUD, via scaffold for pages:
+      • Products
+      • Users
+      • Customers
+      • Appointments
+      • Purchases
+
+*  2. Bootstrap, base styling for most HTML elements
+      • Searchbar
+      • Tables
+      • Buttons
+      • Fonts
+      • Alerts
+
+*  3. application.html.erb is the core file for the structure of our project
+      • Please keep the structure in this format so we can avoid repetition
+      • In this file we can also define permission for different users
+
+*Things to do next:
+   1. Wait for customers feedback upon the most valuable user stories
+   2. Wait for customers feedback upon the first look of the system
+
+Edit the project on the "master-update" branch, after doing so, create a pull request.
+All the best from Athens.
+Ibrax :)

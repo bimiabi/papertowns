@@ -20,7 +20,7 @@ class PurchasesController < ApplicationController
 
   # GET /purchases/1/edit
   def edit
-    @purchases = Purchase.scoped
+  
   end
 
   # POST /purchases

@@ -17,7 +17,7 @@
   </div>
     <div class="field">
       <%= f.label :product_name %><br>
-      <%= f.select(:product_name, options_for_select(Product.all, :product_name)) %>
+      <%= f.select(:product_name, options_for_select(Product.all,:product_name)) %>
     </div>
   <div class="field">
     <%= f.label :product_model %><br>
