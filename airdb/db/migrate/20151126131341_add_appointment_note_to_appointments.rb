@@ -1,5 +1,5 @@
 class AddAppointmentNoteToAppointments < ActiveRecord::Migration
   def change
-    add_column :appointments, :appointment_note, :string
+    add_column :appointments, :appointment_note, :text
   end
 end

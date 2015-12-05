@@ -5,14 +5,15 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Customer name</th>
-      <th>Technician name</th>
-      <th>Phone number</th>
+      <th>Customer Name</th>
+      <th>Technician Name</th>
+      <th>Phone Number</th>
       <th>Appointment type</th>
       <th>Address</th>
-      <th>Product model</th>
-      <th>Appointment date</th>
-      <th>Appointment note</th>
+      <th>Product Model</th>
+      <th>Appointment Date</th>
+      <th>Appointment Note</th>
+      <th>Appointment Status</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -28,6 +29,7 @@
         <td><%= appointment.product_model %></td>
         <td><%= appointment.appointment_date %></td>
         <td><%= appointment.appointment_note %></td>
+        <td><%= appointment.appointment_status %></td>
         <td><%= link_to 'View', appointment %></td>
           <% if can? :update, @appointment %>
         <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
