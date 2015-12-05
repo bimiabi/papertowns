@@ -44,5 +44,17 @@
   <%= @appointment.appointment_status %>
 </p>
 
+<p>
+  <strong>User:</strong>
+  <%= @appointment.user.user_role %>
+  <%= @appointment.user.name %>
+</p>
+<br>
+<strong>The list of Notes: </strong></br>
+<br>
+<%= render @appointment.comments %>
+<br>
+<p> <%= render "comments/form" %>
+
 <%= link_to 'Edit', edit_appointment_path(@appointment) %> |
 <%= link_to 'Back', appointments_path %>
