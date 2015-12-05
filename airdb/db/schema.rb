@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20151127135302) do
+=======
+ActiveRecord::Schema.define(version: 20151127125233) do
+>>>>>>> 6b42aec66aa71eeb040ab43f89f6266f13bdbfe1
 
   create_table "appointments", force: :cascade do |t|
     t.string   "customer_name"
@@ -24,8 +28,13 @@ ActiveRecord::Schema.define(version: 20151127135302) do
     t.datetime "updated_at",         null: false
     t.string   "technician_name"
     t.text     "note"
+<<<<<<< HEAD
     t.string   "appointment_status"
     t.text     "appointment_note"
+=======
+    t.string   "appointment_note"
+    t.string   "appointment_status"
+>>>>>>> 6b42aec66aa71eeb040ab43f89f6266f13bdbfe1
   end
 
   create_table "customers", force: :cascade do |t|
