@@ -17,7 +17,7 @@
   </div>
     <div class="field">
       <%= f.label :product_name %><br>
-      <%= f.select(:product_name, options_for_select(Product.all,:product_name)) %>
+      <%= f.text_field :product_name %>
     </div>
   <div class="field">
     <%= f.label :product_model %><br>
@@ -36,6 +36,7 @@
     <%= f.date_select :maintnance_date %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
+    <button type="button" class="btn btn-lg-primary"><%= link_to 'Cancel', purchases_path %></button>
   </div>
 <% end %>

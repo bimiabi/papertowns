@@ -44,6 +44,7 @@
     <%= f.select(:gender, options_for_select([ ["Male"], ["Female"]])) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
+    <button type="button" class="btn btn-lg-primary"><%= link_to 'Cancel', customers_path %></button>
   </div>
 <% end %>

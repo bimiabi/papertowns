@@ -44,6 +44,7 @@
     <%= f.select(:user_role, options_for_select([ ["Director"], ["Secretary"], ["Technician"]])) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
+    <button type="button" class="btn btn-lg-primary"><%= link_to 'Back', users_path %></button>
   </div>
 <% end %>
