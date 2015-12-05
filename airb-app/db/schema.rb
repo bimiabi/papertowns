@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20151127183826) do
+=======
+ActiveRecord::Schema.define(version: 20151127165804) do
+>>>>>>> master
 
   create_table "appointments", force: :cascade do |t|
     t.string   "customer_name"
@@ -27,6 +31,7 @@ ActiveRecord::Schema.define(version: 20151127183826) do
     t.string   "appointment_status"
     t.text     "appointment_note"
     t.integer  "user_id"
+<<<<<<< HEAD
   end
 
   create_table "comments", force: :cascade do |t|
@@ -35,6 +40,8 @@ ActiveRecord::Schema.define(version: 20151127183826) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "user_id"
+=======
+>>>>>>> master
   end
 
   create_table "customers", force: :cascade do |t|
