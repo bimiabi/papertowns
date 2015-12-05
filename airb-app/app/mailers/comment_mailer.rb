@@ -6,11 +6,13 @@ class CommentMailer < ActionMailer::Base
     @appointment_user = appointment_user
     @content = content
     @status = status
+
     if status == "Pending"
     mail(to: appointment_user.email,
          from: "airdbapp@gmail.com", #using Gmail smtp settings it will override this "from:" so it doesnt matter what we put here
-         subject: "Comment Created",
+         subject: "Note Created",
     )
+
     end
   end
 

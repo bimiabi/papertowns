@@ -25,13 +25,13 @@
         <td><%= purchase.purchase_date %></td>
         <td><%= purchase.maintnance_date %></td>
         <% if can? :read, @purchases %>
-        <td><%= link_to 'Show', purchase %></td>
+        <td><button type="button" class="btn btn-lg-primary"><%= link_to 'Show', purchase %></button></td>
         <%end%>
         <% if can? :update, @purchase %>
-        <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
+        <td><button type="button" class="btn btn-lg-primary"><%= link_to 'Edit', edit_purchase_path(purchase) %></button></td>
         <%end%>
         <% if can? :destroy, @purchase %>
-        <td><%= button_to 'Delete', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><button type="button" class="btn btn-lg-primary"><%= button_to 'Delete', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
         <%end%>
       </tr>
     <% end %>

@@ -29,13 +29,13 @@
         <td><%= appointment.product_model %></td>
         <td><%= appointment.appointment_date %></td>
         <td><%= appointment.appointment_note %></td>
-        <td><%= appointment.appointment_status %></td>
-        <td><%= link_to 'View', appointment %></td>
+        <td><%= "fix this status" %></td>
+        <td><button type="button" class="btn btn-lg-primary"><%= link_to 'View', appointment %></button></td>
           <% if can? :update, @appointment %>
-        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+        <td><button type="button" class="btn btn-lg-primary"><%= link_to 'Edit', edit_appointment_path(appointment) %></button></td>
           <%end%>
           <% if can? :destroy, @appointment %>
-        <td><%= button_to 'Delete', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><button type="button" class="btn btn-lg-primary"><%= button_to 'Delete', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
           <%end%>
       </tr>
     <% end %>

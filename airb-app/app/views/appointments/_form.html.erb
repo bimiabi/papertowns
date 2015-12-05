@@ -10,41 +10,42 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :customer_name %><br>
-    <%= f.text_field :customer_name %>
+  <div calss='row'>
+    <div class='col-sm-3'>
+      <%= f.label :customer_name %><br>
+      <%= f.text_field :customer_name %>
+      <br><br>
+      <%= f.label :technician_name %><br>
+      <%= f.text_field :technician_name %>
+    </div>
+    <div class='col-sm-3'>
+      <%= f.label :phone_number %><br>
+      <%= f.text_field :phone_number %>
+      <br><br>
+      <%= f.label :appointment_type %><br>
+      <%= f.text_field :appointment_type %>
+    </div>
+    <div class='col-sm-3'>
+      <%= f.label :address %><br>
+      <%= f.text_field :address %>
+      <br><br>
+      <%= f.label :product_model %><br>
+      <%= f.text_field :product_model %>
+   </div>
+   <div class='col-sm-3'>
+      <%= f.label :appointment_date %><br>
+      <%= f.date_select :appointment_date %>
+      <br><br>
+      <%= f.label :appointment_note %><br>
+      <%= f.text_area :appointment_note %>
   </div>
-  <div class="field">
-    <%= f.label :technician_name %><br>
-    <%= f.text_field :technician_name %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number %>
-  </div>
-  <div class="field">
-    <%= f.label :appointment_type %><br>
-    <%= f.text_field :appointment_type %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :product_model %><br>
-    <%= f.text_field :product_model %>
-  </div>
-  <div class="field">
-    <%= f.label :appointment_date %><br>
-    <%= f.date_select :appointment_date %>
-  </div>
-  <div class="field">
-    <%= f.label :appointment_note %><br>
-    <%= f.text_area :appointment_note %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+
+  <div calss='row'>
+    <div class='col-sm-3'>
+        <%= f.submit class: "btn btn-primary" %>
+        <button type="button" class="btn btn-lg-primary"><%= link_to 'Cancel', appointments_path %></button>
+    </div>
   </div>
 <% end %>

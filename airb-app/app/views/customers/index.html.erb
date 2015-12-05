@@ -28,12 +28,12 @@
         <td><%= customer.phone_number %></td>
         <td><%= customer.address %></td>
         <td><%= customer.gender %></td>
-        <td><%= link_to 'View', customer %></td>
+        <td><button type="button" class="btn btn-lg-primary"><%= link_to 'View', customer %></buton></td>
         <% if can? :update, @customer %>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <td><button type="button" class="btn btn-lg-primary"><%= link_to 'Edit', edit_customer_path(customer) %></button></td>
         <%end%>
         <% if can? :destroy, @customer %>
-        <td><%= button_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><button type="button" class="btn btn-lg-primary"><%= button_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
         <%end%>
       </tr>
     <% end %>
