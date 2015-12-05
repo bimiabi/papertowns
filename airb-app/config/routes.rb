@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :purchases
-  resources :appointments
+  resources :appointments do
+    resources :comments
+  end
   resources :customers
   resources :users
   resources :products
