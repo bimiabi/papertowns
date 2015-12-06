@@ -1,11 +1,17 @@
 class PurchasesController < ApplicationController
+
   before_action :authenticate_user!
+  load_and_authorize_resource except: [:create]
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
 
   # GET /purchases
   # GET /purchases.json
   def index
-    @purchases = Purchase.all
+    if params[:search]
+       @purchases = Purchase.search(params[:search]).order("created_at DESC")
+     else
+       @purchases = Purchase.order("created_at DESC")
+     end
   end
 
   # GET /purchases/1
@@ -20,7 +26,7 @@ class PurchasesController < ApplicationController
 
   # GET /purchases/1/edit
   def edit
-  
+
   end
 
   # POST /purchases

@@ -1,13 +1,19 @@
 class AppointmentsController < ApplicationController
 
+  load_and_authorize_resource except: [:create]
   before_action :authenticate_user!
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
   # GET /appointments
   # GET /appointments.json
   def index
-    @appointments = Appointment.all
+    if params[:search]
+       @appointments = Appointment.search(params[:search]).order("created_at DESC")
+     else
+       @appointments = Appointment.order("created_at DESC")
+     end
   end
+
 
   # GET /appointments/1
   # GET /appointments/1.json
@@ -28,9 +34,8 @@ class AppointmentsController < ApplicationController
   def create
     @user = current_user
     @appointment = @user.appointments.new(appointment_params)
-
-
-    respond_to do |format|
+      AppointmentMailer.appointmentMail_created(current_user, @appointment.user, @appointment.customer_name, @appointment.appointment_note, @appointment.technician_name, @appointment.phone_number, @appointment.appointment_type, @appointment.address, @appointment.product_model, @appointment.appointment_date).deliver
+      respond_to do |format|
       if @appointment.save
         format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
         format.json { render :show, status: :created, location: @appointment }
@@ -73,6 +78,6 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:customer_name, :appointment_note, :technician_name, :phone_number, :appointment_type, :address, :product_model, :appointment_date, :appointment_status)
+      params.require(:appointment).permit(:customer_name, :appointment_note, :technician_name, :phone_number, :appointment_type, :address, :product_model, :appointment_date, :status)
     end
 end

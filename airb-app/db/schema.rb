@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129085102) do
+ActiveRecord::Schema.define(version: 20151203121223) do
 
   create_table "appointments", force: :cascade do |t|
     t.string   "customer_name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20151129085102) do
     t.string   "appointment_status"
     t.text     "appointment_note"
     t.integer  "user_id"
+    t.string   "status"
   end
 
   create_table "comments", force: :cascade do |t|

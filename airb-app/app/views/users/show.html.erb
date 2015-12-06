@@ -1,19 +1,19 @@
-<br>
-<br>
+<br><br>
 <nav class="navbar navbar-default" role="navigation">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-            <p><h4> User details <h4></p>
-        </ul>
-        <div class="col-sm-3 col-md-3 pull-right">
-            <form class="navbar-form" role="search">
-                <div class="input-group">
-                  <p> User Id: <%= @user.id %></p>
-                </div>
-            </form>
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <p><h4> User details <h4></p>
+      </ul>
+    <div class="col-sm-3 col-md-3 pull-right">
+      <form class="navbar-form" role="search">
+        <div class="input-group">
+          <p> User Id: <%= @user.id %></p>
         </div>
+      </form>
     </div>
+  </div>
 </nav>
+
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
@@ -48,12 +48,12 @@
   <strong>Address:</strong>
   <%= @user.address %>
 </p>
-
-<p>
+  <p>
   <strong>User role:</strong>
   <%= @user.user_role %>
 </p>
 
-
-<button type="button" class="btn btn-lg-primary"><%= link_to 'Edit', edit_user_path(@user) %></button> |
-<button type="button" class="btn btn-lg-primary"><%= link_to 'Back', users_path %></button>
+<% if can? :update, @product %>
+  <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-sm btn-primary" %> |
+<%end%>
+  <%= link_to 'Back', users_path, class: "btn btn-sm btn-primary" %>

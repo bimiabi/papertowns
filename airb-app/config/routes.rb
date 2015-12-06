@@ -1,16 +1,30 @@
 Rails.application.routes.draw do
 
 
-  devise_for :users
+  #This allows the director to register users
+  devise_for :users, :skip => [:registrations]
+  devise_scope :user do
+  get "signup",   :to => "users#new"
+  get "signin",   :to => "devise/sessions#new"
+  get "signout",  :to => "devise/sessions#destroy"
+  get "cancel_user_registration", :to => "devise/registrations#cancel"
+  post "user_registration",       :to => "users#create"
+  get "new_user_registration",    :to => "users#new"
+  get "edit_user_registration",   :to => "users#edit"
+  end
+
+  resources :users
   resources :purchases
   resources :appointments do
     resources :comments
   end
+  resources :appointments do
+    collection do
+       get :test
+    end
+  end
   resources :customers
-  resources :users
   resources :products
-
-
 
   root 'airdb#home'
 
