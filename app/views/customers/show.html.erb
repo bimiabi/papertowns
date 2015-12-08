@@ -1,0 +1,61 @@
+<br><br>
+<p id="notice"><%= notice %></p>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <p><h4> Customer details <h4></p>
+    </ul>
+    <div class="col-sm-3 col-md-3 pull-right">
+      <form class="navbar-form" role="search">
+        <div class="input-group">
+          <p>Customer Id: <%= @customer.id %></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+  <p>
+    <strong>Customer name:</strong>
+    <%= @customer.customer_name %>
+  </p>
+
+  <p>
+    <strong>Username:</strong>
+    <%= @customer.username %>
+  </p>
+
+  <p>
+    <strong>Password:</strong>
+    <%= @customer.password %>
+  </p>
+
+  <p>
+    <strong>Registration date:</strong>
+    <%= @customer.registration_date %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @customer.email %>
+  </p>
+
+  <p>
+    <strong>Phone number:</strong>
+    <%= @customer.phone_number %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= @customer.address %>
+  </p>
+
+  <p>
+    <strong>Gender:</strong>
+    <%= @customer.gender %>
+  </p>
+
+<% if can? :update, @customer %>
+  <%= link_to 'Edit', edit_customer_path(@customer), class: "btn btn-sm btn-primary" %> |
+<%end%>
+  <%= link_to 'Back', customers_path, class: "btn btn-sm btn-primary" %>
