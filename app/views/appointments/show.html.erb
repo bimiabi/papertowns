@@ -1,0 +1,85 @@
+<br><br>
+<p id="notice"><%= notice %></p>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <p><h4> Appointment Details <h4></p>
+    </ul>
+    <div class="col-sm-3 col-md-3 pull-right">
+      <form class="navbar-form" role="search">
+        <div class="input-group">
+          <p>Appointment Id: <%= @appointment.id %></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<nav>
+  <div calss='row'>
+    <div class='col-sm-5'>
+    <p>
+      <strong>Customer name:</strong>
+      <%= @appointment.customer_name %>
+    </p>
+    <p>
+      <strong>Technician name:</strong>
+      <%= @appointment.technician_name %>
+    </p>
+
+    <p>
+      <strong>Phone number:</strong>
+      <%= @appointment.phone_number %>
+    </p>
+
+    <p>
+      <strong>Appointment type:</strong>
+      <%= @appointment.appointment_type %>
+    </p>
+
+    <p>
+      <strong>Address:</strong>
+      <%= @appointment.address %>
+    </p>
+
+    <p>
+      <strong>Product model:</strong>
+      <%= @appointment.product_model %>
+    </p>
+
+    <p>
+      <strong>Appointment date:</strong>
+      <%= @appointment.appointment_date %>
+    </p>
+    <p>
+      <strong>Status:</strong>
+      <%= @appointment.status %>
+    </p>
+
+    <p>
+      <strong>User:</strong>
+      <%= @appointment.user.user_role %>
+      <%= @appointment.user.name %>
+    </p>
+    <br>
+      <% if can? :update, @customer %>
+      <%= link_to 'Edit', edit_appointment_path(@appointment), class: "btn btn-sm btn-primary" %> |
+      <%end%>
+      <%= link_to 'Back', appointments_path, class: "btn btn-sm btn-primary" %>
+    </div>
+  </div>
+
+  <div calss='row'>
+    <div class='col-sm-5'>
+      <strong>The list of Notes: </strong></br><br>
+      <p>
+        <strong>First Note:</strong>
+        <%= @appointment.appointment_note %>
+      </p><br>
+        <%= render @appointment.comments %><br>
+      <p>
+        <%= render "comments/form" %>
+      </p>
+   </div>
+  </div>
+</nav>

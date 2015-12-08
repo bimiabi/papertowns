@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'searchbar/searchCustomers' %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Customer name</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Registration date</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>Address</th>
+      <th>Gender</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.id %></td>
+        <td><%= customer.customer_name %></td>
+        <td><%= customer.username %></td>
+        <td><%= customer.password %></td>
+        <td><%= customer.registration_date %></td>
+        <td><%= customer.email %></td>
+        <td><%= customer.phone_number %></td>
+        <td><%= customer.address %></td>
+        <td><%= customer.gender %></td>
+        <td><%= link_to 'View', customer, class: "btn btn-sm btn-success" %></td>
+        <% if can? :update, @customer %>
+          <td><%= link_to 'Edit', edit_customer_path(customer), class: "btn btn-sm btn-info" %></td>
+        <%end%>
+        <% if can? :destroy, @customer %>
+          <td><%= button_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
+        <%end%>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+<br>
+<% if can? :create, @customer %>
+  <%= link_to 'New Customer', new_customer_path, class: "btn btn-lg btn-primary" %>
+<%end%>
