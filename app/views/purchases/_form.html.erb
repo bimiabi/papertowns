@@ -1,0 +1,42 @@
+<%= form_for(@purchase) do |f| %>
+  <% if @purchase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
+
+      <ul>
+      <% @purchase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :customer_name %><br>
+    <%= f.text_field :customer_name %>
+  </div>
+    <div class="field">
+      <%= f.label :product_name %><br>
+      <%= f.text_field :product_name %>
+    </div>
+  <div class="field">
+    <%= f.label :product_model %><br>
+    <%= f.text_field :product_model %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :purchase_date %><br>
+    <%= f.date_select :purchase_date %>
+  </div>
+  <div class="field">
+    <%= f.label :maintnance_date %><br>
+    <%= f.date_select :maintnance_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary" %>
+    <button type="button" class="btn btn-lg-primary"><%= link_to 'Cancel', purchases_path %></button>
+  </div>
+<% end %>

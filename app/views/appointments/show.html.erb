@@ -1,0 +1,64 @@
+
+<br><br>
+<p id="notice"><%= notice %></p>
+
+<div calss='row'>
+    <div class='col-sm-5'>
+    <p>
+      <strong>Customer name:</strong>
+      <%= @appointment.customer_name %>
+    </p>
+    <p>
+      <strong>Technician name:</strong>
+      <%= @appointment.technician_name %>
+    </p>
+
+    <p>
+      <strong>Phone number:</strong>
+      <%= @appointment.phone_number %>
+    </p>
+
+    <p>
+      <strong>Appointment type:</strong>
+      <%= @appointment.appointment_type %>
+    </p>
+
+    <p>
+      <strong>Address:</strong>
+      <%= @appointment.address %>
+    </p>
+
+    <p>
+      <strong>Product model:</strong>
+      <%= @appointment.product_model %>
+    </p>
+
+    <p>
+      <strong>Appointment date:</strong>
+      <%= @appointment.appointment_date %>
+    </p>
+    <p>
+      <strong>Status:</strong>
+      <%= @appointment.appointment_status %>
+    </p>
+
+    <p>
+      <strong>User:</strong>
+      <%= @appointment.user.user_role %>
+      <%= @appointment.user.name %>
+    </p>
+    <br>
+      <button type="button" class="btn btn-lg-primary"><%= link_to 'Back', appointments_path %></button>
+    </div>
+</div>
+<div calss='row'>
+  <div class='col-sm-5'>
+    <strong>The list of Notes: </strong></br><br>
+    <p>
+      <strong>First Note:</strong>
+      <%= @appointment.appointment_note %>
+    </p><br>
+    <%= render @appointment.comments %><br>
+    <p> <%= render "comments/form" %></pr>
+</div>
+</div>
