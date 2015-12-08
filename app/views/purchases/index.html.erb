@@ -5,6 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Customer name</th>
       <th>Product name</th>
       <th>Product model</th>
@@ -18,6 +19,7 @@
   <tbody>
     <% @purchases.each do |purchase| %>
       <tr>
+        <td><%= purchase.id %></td>
         <td><%= purchase.customer_name %></td>
         <td><%= purchase.product_name %></td>
         <td><%= purchase.product_model %></td>
@@ -25,20 +27,19 @@
         <td><%= purchase.purchase_date %></td>
         <td><%= purchase.maintnance_date %></td>
         <% if can? :read, @purchases %>
-        <td><button type="button" class="btn btn-lg-primary"><%= link_to 'Show', purchase %></button></td>
+          <td><%= link_to 'Show', purchase, class: "btn btn-sm btn-success" %></td>
         <%end%>
         <% if can? :update, @purchase %>
-        <td><button type="button" class="btn btn-lg-primary"><%= link_to 'Edit', edit_purchase_path(purchase) %></button></td>
+          <td><%= link_to 'Edit', edit_purchase_path(purchase), class: "btn btn-sm btn-info" %></td>
         <%end%>
         <% if can? :destroy, @purchase %>
-        <td><button type="button" class="btn btn-lg-primary"><%= button_to 'Delete', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+          <td><%= button_to 'Delete', purchase, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
         <%end%>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 <% if can? :create, @purchase %>
-<button type="button" class="btn btn-lg btn-default"><%= link_to 'New Purchase', new_purchase_path %></button>
+  <%= link_to 'New Purchase', new_purchase_path, class: "btn btn-lg btn-primary" %>
 <%end%>

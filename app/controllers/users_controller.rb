@@ -1,11 +1,17 @@
 class UsersController < ApplicationController
+
   before_action :authenticate_user!
+  load_and_authorize_resource except: [:create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if params[:search]
+       @users = User.search(params[:search]).order("created_at DESC")
+     else
+       @users = User.order("created_at DESC")
+     end
   end
 
   # GET /users/1
@@ -70,6 +76,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :registration_date, :expiration_date, :personal_number, :phone_number, :email, :address, :user_role)
+      params.require(:user).permit(:name, :registration_date, :expiration_date, :personal_number, :phone_number, :email, :password, :password_confirmation, :address, :user_role)
     end
 end

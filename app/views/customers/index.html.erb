@@ -5,6 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Customer name</th>
       <th>Username</th>
       <th>Password</th>
@@ -20,6 +21,7 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
+        <td><%= customer.id %></td>
         <td><%= customer.customer_name %></td>
         <td><%= customer.username %></td>
         <td><%= customer.password %></td>
@@ -28,19 +30,18 @@
         <td><%= customer.phone_number %></td>
         <td><%= customer.address %></td>
         <td><%= customer.gender %></td>
-        <td><button type="button" class="btn btn-lg-primary"><%= link_to 'View', customer %></buton></td>
+        <td><%= link_to 'View', customer, class: "btn btn-sm btn-success" %></td>
         <% if can? :update, @customer %>
-        <td><button type="button" class="btn btn-lg-primary"><%= link_to 'Edit', edit_customer_path(customer) %></button></td>
+          <td><%= link_to 'Edit', edit_customer_path(customer), class: "btn btn-sm btn-info" %></td>
         <%end%>
         <% if can? :destroy, @customer %>
-        <td><button type="button" class="btn btn-lg-primary"><%= button_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+          <td><%= button_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
         <%end%>
       </tr>
-    <% end %>
+    <%end%>
   </tbody>
 </table>
-
 <br>
 <% if can? :create, @customer %>
-<button type="button" class="btn btn-lg btn-default"><%= link_to 'New Customer', new_customer_path %></button>
+  <%= link_to 'New Customer', new_customer_path, class: "btn btn-lg btn-primary" %>
 <%end%>

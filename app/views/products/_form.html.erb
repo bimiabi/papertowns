@@ -2,48 +2,52 @@
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-      <ul>
-      <% @product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <ul>
+          <% @product.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <%end%>
+          </ul>
+      </div>
+  <%end%>
 
-  <div class="field">
-    <%= f.label :product_name %><br>
-    <%= f.text_field :product_name %>
+<div calss='row'>
+  <div class='col-sm-6'>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Product Name:</span>
+        <%= f.text_field :product_name, class: "form-control" %>
+      </div><br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Product Model:</span>
+        <%= f.text_field :product_model, class: "form-control" %>
+      </div><br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Serial Number:</span>
+        <%= f.text_field :serial_number, class: "form-control" %>
+      </div><br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Price: $</span>
+        <%= f.number_field :price, class: "form-control" %>
+      </div><br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Stock:</span>
+        <%= f.number_field :stock, class: "form-control" %>
+      </div><br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Product Description:</span>
+        <%= f.text_area :description, class: "form-control" %>
+      </div><br>
+    <div class="actions">
+        <%= f.submit class: "btn btn-primary" %>
+      <button type="button" class="btn btn-lg-primary"><%= link_to 'Cancel', products_path %></button>
+    </div>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :product_model %><br>
-    <%= f.text_field :product_model %>
-  </div>
-  <div class="field">
-    <%= f.label :serial_number %><br>
-    <%= f.text_field :serial_number %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :stock %><br>
-    <%= f.number_field :stock %>
-  </div>
-  <div class="field">
-    <%= f.label :upload_image %><br>
-    <%= f.file_field :asset %>
-    <% if f.object.asset_stored? %>
-      <%= image_tag f.object.asset.thumb('140x140').url, class: 'img-thumbnail' %>
-        <em>Current image</em>
+    <em>Click Choose File button to upload the image</em>
+      <%= f.file_field :asset %><br>
+      <% if f.object.asset_stored? %>
+        <%= image_tag f.object.asset.thumb('250x250#').url, class: 'img-thumbnail' %><br>
+        <em>Current Image</em>
       <%end%>
   </div>
-  <div class="actions">
-    <%= f.submit class: "btn btn-primary" %>
-    <button type="button" class="btn btn-lg-primary"><%= link_to 'Cancel', products_path %></button>
-  </div>
-<% end %>
+</div>
+<%end%>

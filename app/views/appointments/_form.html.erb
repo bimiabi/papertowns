@@ -10,42 +10,48 @@
       </ul>
     </div>
   <% end %>
-  <div calss='row'>
-    <div class='col-sm-3'>
-      <%= f.label :customer_name %><br>
-      <%= f.text_field :customer_name %>
-      <br><br>
-      <%= f.label :technician_name %><br>
-      <%= f.text_field :technician_name %>
+<div calss='row'>
+  <div class='col-sm-6'>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Customer Name:</span>
+      <%= f.text_field :customer_name, class: "form-control" %>
+      </div><br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Technician Name:</span>
+      <%= f.text_field :technician_name, class: "form-control" %>
+    </div><br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Phone Number:</span>
+      <%= f.text_field :phone_number, class: "form-control" %>
+    </div><br>
+      <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Appointment Type:</span>
+      <%= f.text_field :appointment_type, class: "form-control" %>
+    </div><br>
+      </div>
+      <div class='col-sm-6'>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Address:</span>
+      <%= f.text_field :address, class: "form-control" %>
+    </div><br>
+      <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Product Model:</span>
+      <%= f.text_field :product_model, class: "form-control" %>
+    </div><br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Appointment note:</span>
+      <%= f.text_area :appointment_note, class: "form-control" %>
+    </div><br>
+    <div class="input-group">
+     <span class="input-group-addon" id="basic-addon2">Appointment date:</span>
+      <%= f.date_select :appointment_date, class: "form-control" %>
+    </div><br>
+    <div class="dropdown">
+      <%= f.label :select_status %><br>
+      <%= f.select(:status, options_for_select([ ["No Status"], ["Pending"], ["Done"] ])) %>
+    </button>
+      <%= f.submit class: "btn btn-primary" %>
+      <button type="button" class="btn btn-lg-primary"><%= link_to 'Cancel', appointments_path %></button>
     </div>
-    <div class='col-sm-3'>
-      <%= f.label :phone_number %><br>
-      <%= f.text_field :phone_number %>
-      <br><br>
-      <%= f.label :appointment_type %><br>
-      <%= f.text_field :appointment_type %>
-    </div>
-    <div class='col-sm-3'>
-      <%= f.label :address %><br>
-      <%= f.text_field :address %>
-      <br><br>
-      <%= f.label :product_model %><br>
-      <%= f.text_field :product_model %>
-   </div>
-   <div class='col-sm-3'>
-      <%= f.label :appointment_date %><br>
-      <%= f.date_select :appointment_date %>
-      <br><br>
-      <%= f.label :appointment_note %><br>
-      <%= f.text_area :appointment_note %>
-  </div>
-  </div>
-
-
-  <div calss='row'>
-    <div class='col-sm-3'>
-        <%= f.submit class: "btn btn-primary" %>
-        <button type="button" class="btn btn-lg-primary"><%= link_to 'Cancel', appointments_path %></button>
-    </div>
-  </div>
+</div>
 <% end %>

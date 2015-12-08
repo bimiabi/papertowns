@@ -1,8 +1,22 @@
-
 <br><br>
 <p id="notice"><%= notice %></p>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <p><h4> Appointment Details <h4></p>
+    </ul>
+    <div class="col-sm-3 col-md-3 pull-right">
+      <form class="navbar-form" role="search">
+        <div class="input-group">
+          <p>Appointment Id: <%= @appointment.id %></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
 
-<div calss='row'>
+<nav>
+  <div calss='row'>
     <div class='col-sm-5'>
     <p>
       <strong>Customer name:</strong>
@@ -39,7 +53,7 @@
     </p>
     <p>
       <strong>Status:</strong>
-      <%= @appointment.appointment_status %>
+      <%= @appointment.status %>
     </p>
 
     <p>
@@ -48,17 +62,24 @@
       <%= @appointment.user.name %>
     </p>
     <br>
-      <button type="button" class="btn btn-lg-primary"><%= link_to 'Back', appointments_path %></button>
+      <% if can? :update, @customer %>
+      <%= link_to 'Edit', edit_appointment_path(@appointment), class: "btn btn-sm btn-primary" %> |
+      <%end%>
+      <%= link_to 'Back', appointments_path, class: "btn btn-sm btn-primary" %>
     </div>
-</div>
-<div calss='row'>
-  <div class='col-sm-5'>
-    <strong>The list of Notes: </strong></br><br>
-    <p>
-      <strong>First Note:</strong>
-      <%= @appointment.appointment_note %>
-    </p><br>
-    <%= render @appointment.comments %><br>
-    <p> <%= render "comments/form" %></pr>
-</div>
-</div>
+  </div>
+
+  <div calss='row'>
+    <div class='col-sm-5'>
+      <strong>The list of Notes: </strong></br><br>
+      <p>
+        <strong>First Note:</strong>
+        <%= @appointment.appointment_note %>
+      </p><br>
+        <%= render @appointment.comments %><br>
+      <p>
+        <%= render "comments/form" %>
+      </p>
+   </div>
+  </div>
+</nav>

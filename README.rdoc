@@ -1,9 +1,5 @@
 README
 
-*The Update for this pull request:
-  User Authentication, but no authorization yet.
-  Using Devise.
-
 * Ruby version: 2.1.5
 
 * Rails version: 4.2.4

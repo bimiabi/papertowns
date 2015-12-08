@@ -1,12 +1,17 @@
 class CustomersController < ApplicationController
 
   before_action :authenticate_user!
+  load_and_authorize_resource except: [:create]
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    if params[:search]
+       @customers = Customer.search(params[:search]).order("created_at DESC")
+     else
+       @customers = Customer.order("created_at DESC")
+     end
   end
 
   # GET /customers/1
