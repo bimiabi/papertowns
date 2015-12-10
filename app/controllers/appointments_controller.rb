@@ -2,6 +2,7 @@ class AppointmentsController < ApplicationController
 
   before_action :authenticate_user!
   load_and_authorize_resource except: [:create]
+  skip_authorize_resource :only => [:dailyAppointments, :weeklyAppointments, :allAppointments, :pendingAppointments, :finishedAppointments]
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
   # GET /appointments
@@ -14,17 +15,40 @@ class AppointmentsController < ApplicationController
      end
   end
 
-
   # GET /appointments/1
   # GET /appointments/1.json
   def show
   end
+
+  def allAppointments
+       @appointments = Appointment.order("created_at DESC")
+  end
+
+  def dailyAppointments
+       @appointments = Appointment.order("created_at DESC")
+  end
+
+  def weeklyAppointments
+       @appointments = Appointment.order("created_at DESC")
+  end
+
+  def finishedAppointments
+       @appointments = Appointment.order("created_at DESC")
+  end
+
+  def pendingAppointments
+       @appointments = Appointment.order("created_at DESC")
+  end
+
 
   # GET /appointments/new
   def new
     @appointment = Appointment.new
   end
 
+  def test
+    @appointment = Appointment.new
+  end
   # GET /appointments/1/edit
   def edit
   end
@@ -34,7 +58,6 @@ class AppointmentsController < ApplicationController
   def create
     @user = current_user
     @appointment = @user.appointments.new(appointment_params)
-      AppointmentMailer.appointmentMail_created(current_user, @appointment.user, @appointment.customer_name, @appointment.appointment_note, @appointment.technician_name, @appointment.phone_number, @appointment.appointment_type, @appointment.address, @appointment.product_model, @appointment.appointment_date).deliver
       respond_to do |format|
       if @appointment.save
         format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }

@@ -1,11 +1,19 @@
 class CommentMailer < ActionMailer::Base
 
-  def comment_created(current_user,appointment_user,content, status)
+  def comment_created(current_user,appointment_user,content, status, appointment, customer_name, technician_name, appointment_date, phone_number, address, appointment_type)
 
     @current_user = current_user
     @appointment_user = appointment_user
     @content = content
     @status = status
+    @appointment = appointment
+    @appointment.customer_name = customer_name
+    @appointment.appointment_date = appointment_date
+    @appointment.technician_name = technician_name
+    @appointment.phone_number = phone_number
+    @appointment.address = address
+    @appointment.appointment_type = appointment_type
+
 
     if status == "Pending"
     mail(to: appointment_user.email,
